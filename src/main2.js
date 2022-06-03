@@ -16,7 +16,7 @@ renderer.setPixelRatio(window.devicePixelRatio > 1 ? 2 : 1);
 
 // Scene
 const scene = new THREE.Scene();
-scene.background = new THREE.Color('yellow');
+scene.background = new THREE.Color('blue');
 
 // Camera
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -139,15 +139,18 @@ function checkIntersects() {
     }
 
     for (const item of intersects) {
-        item.object.material.color.set('orangered');
+        item.object.material.color.set('red');
         const ts = document.querySelectorAll('.t');
         ts.forEach((t) => {
-            t.style.display = 'none';
+            // t.style.display = 'none';
+            t.style.opacity = '0';
         });
         if (item.object.name == 'firstOBJ') {
-            document.querySelector('.textInformation-1').style.display = 'block';
+            // document.querySelector('.textInformation-1').style.display = 'block';
+            document.querySelector('.textInformation-1').style.opacity = '1';
         } else if (item.object.name == 'secondOBJ') {
-            document.querySelector('.textInformation-2').style.display = 'block';
+            // document.querySelector('.textInformation-2').style.display = 'block';
+            document.querySelector('.textInformation-2').style.opacity = '1';
         }
         break;
     }
